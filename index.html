@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- подключаем стили Mocha, для отображения результатов -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <!-- подключаем библиотеку Mocha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+    <script>
+        mocha.setup('bdd');
+    </script>
+
+    <!-- подключаем chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <!-- в chai есть много всего, выносим assert в глобальную область -->
+    <script>
+        var assert = chai.assert;
+    </script>
+</head>
+
+<body>
+
+    <!-- в этом скрипте находятся спеки -->
+    <script>
+function problem01 (a,b)
+{
+    var a;
+    var b;
+    var max;
+    if  (a<b) {
+        max = b;
+    } else{
+        max = a;
+    } 
+    return max;
+}
+
+function problem02 (a,b,c)
+
+{ 
+var a; 
+var b; 
+var c; 
+var max; 
+if ((a > b)&&(a > c)){ 
+max = a; 
+} if ((b > a)&&(b > c)){ 
+max = b; 
+} if((c > a)&&(c > b)){ 
+max = c; 
+} 
+return max; 
+}
+
+function problem03 (x,y,z)
+{
+     var x;
+     var y;
+     var z;
+     var max;
+     if (x+y+z>x*y*z){
+         max = x+y+z;
+     } else{
+         max = x*y*z;
+     }
+     return max;
+}
+
+function problem04 (x,y,z)
+{
+     var x;
+     var y;
+     var z;
+     var min, min2; 
+     res = (x + y + z/2);
+     res1 = (x*y*z);
+     if (res>res1){
+         min = res1;
+     } if (res<res1){
+         min = res;
+     }
+         min2 = (min*min)+1;
+    return min2;
+}
+
+function problem05 (a,b,c)
+{    
+       var a;
+       var b;
+       var c;
+       var res;
+       if((a<b)&&(a<c)){
+           res = true;
+       } else{
+           res = false;
+       } 
+    return res;
+}
+
+function problem06 (x,y)
+{
+        var x;
+        var y;
+        var z;
+        z = (x+y)/2; 
+        return z;
+}
+
+function problem07 (x,y)
+{
+     var x;
+     var y;
+     if(x<y){
+         x=0;
+     } 
+     
+    return {x,y};
+}
+
+function problem08 (x,y)
+{
+     var x;
+     var y;
+     var sum;
+     sum = (x+y)/2;
+     if(x<y){
+         x = sum;
+     } if(x>y){
+         y = sum;
+     }
+    return {x,y};
+}
+
+function problem09 (x,y,z)
+{
+     var x;
+     var y;
+     var z;
+     if((x>=0) && (y>=0) && (z>=0)){
+        x = x*x;
+        y = y*y;
+        z = z*z;
+     }  if((x>=0) && (y>=0) &&  (z<0)){
+           x = x*x;
+           y = y*y;
+       } if ((x>=0) &&  (y<0) && (z<0)){
+         x = x*x;
+     }
+    return {x,y,z};
+}
+function problem10 (a,b,c,d)
+{
+       var a;
+       var b;
+       var c;
+       var d;
+       var max;    
+       if ((a<=b) && (b<=c) && (c<=d)){
+       max = d;
+       a=max;
+       b=max;
+       c=max;
+       } if (b>max){
+           max =b;
+           a=max;
+           c=max;
+           d=max;
+       } if (c>max){
+           max=c;
+           a=max;
+           b=max;
+           d=max;
+       } if (a>max){
+           max=a;
+           b=max;
+           c=max;
+           d=max;
+       }
+       return {a,b,c,d};
+       }
+
+
+function problem11 (x,y)
+{
+       var x;
+       var y;
+       if ((x>=0) && (y<=0)){
+       y = Math.abs(y);
+    }  if ((x<=0) && (y<=0)){
+       x = Math.abs(x);
+       y = Math.abs( y);
+ }     if ((x<=0) && (y>=0)){
+       x = Math.abs(x);
+    }   
+       return {x,y};
+}
+    </script>
+
+    <!-- в этом скрипте находятся спеки -->
+    <script src="test.js"></script>
+
+    <!-- в элементе с id="mocha" будут результаты тестов -->
+    <div id="mocha"></div>
+
+    <!-- запустить тесты! -->
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>
